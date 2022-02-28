@@ -20,7 +20,7 @@
             <div class="top">
                 <div class="left">
                     <a href="homepage.php">
-                        <img class="logo" src="logo.png" alt="Nostalgia">    
+                        <img class="logo" src="logo.png" alt="Nostalgia">
                     </a>
                 </div>
                 <div class="center">
