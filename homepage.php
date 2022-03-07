@@ -12,6 +12,7 @@
     <meta property="og:type" content="website">
     <meta property="og:description" content="Nostalgia is an ethical social network taking key design elements from early 2000s online culture.">
 
+    <script src="scripts.js" defer></script>
 </head>
 
 <body>
@@ -20,13 +21,15 @@
             <div class="top">
                 <div class="left">
                     <a href="homepage.php">
-                        <img class="logo" src="logo.png" alt="Nostalgia">
+                        <img class="logo" src="logo.png" alt="Nostalgia">    
                     </a>
                 </div>
                 <div class="center">
+                    <p>Nostalgia</p>
                 </div>
                 <div class="right">
                     <a href="homepage.php">Help</a>
+                    <button class="darkmode-toggle">🌑</button>
                 </div>
             </div>
             <ul class="links">

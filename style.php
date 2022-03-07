@@ -9,7 +9,21 @@ $border = '1px solid';
 ?>
 
 :root {
+
+    /* WHITES */
     --cornsilk: #FEFAE0;
+    --baby-poweder: #FFFDF7;
+    --snow-white: #FFF9FB;
+    --cultured: #EFF1F3;
+
+    /* BLACKS */
+    --rich-black: #02010A;
+    --jet: #2F2F2F;
+
+    /* GREY */
+    --dark-mode-1: #252627;
+
+
     --spanish-violet: #4A306D;
     --plum-web: #E2AFDE;
     --russian-green: #678D58;
@@ -19,11 +33,10 @@ $border = '1px solid';
     --rufous: #9B2915;
     --cadet-blue: #50A2A7;
     --xanadu: #73877B;
+    --orange-red-crayola: #fe595d;
 
-    --logo-color: #fe595d;
-
-    background-color: var(--cornsilk);
-    accent-color: var(--spanish-violet);
+    --logo: #8BBD8B;
+    --logo-dark: #6CAE75;
 }
 
 html {
@@ -36,19 +49,46 @@ html, body {
 }
 
 body {
-    <!-- background-color: var(--plum-web); -->
+    --text-color: var(--rich-black);
+    --bkg-color: var(--cultured);
+    --container-color: var(--snow-white);
+
+    color: var(--text-color);
+    background: var(--bkg-color);
+    accent-color: var(--spanish-violet);
+}
+
+body.dark-theme {
+    --text-color: var(--snow-white); 
+    --bkg-color: var(--jet);
+    --container-color: var(--dark-mode-1);
+}
+
+@media (prefers-color-scheme: dark) {                                       /*** TO DO: MORE ELEGANT SOLUTION??? ***/
+    /* variables when default to dark theme */
+    body {
+        --text-color: var(--snow-white); 
+        --bkg-color: var(--jet);
+        --container-color: var(--dark-mode-1);
+    }
+    body.light-theme {
+        --text-color: var(--rich-black);
+        --bkg-color: var(--cultured);
+        --container-color: var(--snow-white);
+    }
 }
 
 .container {
     width: 1200px;
     margin: 0px auto 10px;
     /* background-image: linear-gradient(to right, #fe595d, #ff9999); */
+    background: var(--container-color);
     font-family: <?=$font_family?>;
     font-size: <?=$font_size?>;
 }
 
 nav a {
-    color: white;
+    color: var(--text-color);
     font-size: 12px;
     text-decoration: none;
 }
@@ -61,19 +101,13 @@ nav a:hover {
 
 nav .top {
     padding: 15px 10px 15px 10px;
-    background: var(--logo-color);
+    background: var(--logo);
     display: flex;
 }
 
-nav .top div {
-    display: inline-block;
-}
-
 nav .top .left .logo {
-    margin: 0px 0px 0px 10px;
-    width: 128px;
-    height: 128px;
-    display: inline-block;
+    width: 64px;
+    height: 64px;
 }
 
 nav .top .center {
@@ -81,10 +115,16 @@ nav .top .center {
     flex:1;
 }
 
+nav .top .right {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+}
+
 nav .links {
     margin: 0px;
     padding: 0px 10px 5px;
-    background: var(--rufous); 
+    background: var(--logo-dark); 
     list-style: none;
     white-space: nowrap;
     text-align: center;
@@ -103,8 +143,6 @@ nav .links li:not(:last-child)::after{
 main {
     margin: 0px 0px;
     padding: 10px 0px;
-    color: black;
-    background: var(--logo-color);
     font-size: 1em;
 }
 
@@ -118,9 +156,19 @@ footer {
     margin: 10px 0px;
     padding: 10px 5px;
     color: black;
-    background: var(--cornsilk);
+    background: var(--bkg-color);
     font-size: 12px;
     text-align: center;
+}
+
+button.darkmode-toggle {
+    margin: 0px;
+    padding: 1px 1px 3px;
+    background-color: var(--jet);
+    border-radius: 100%;
+    border: none;
+    text-align: center;
+    cursor: pointer;
 }
 
 <!-- font-variant: small-caps; -->
