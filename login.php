@@ -13,7 +13,7 @@
     <input type="submit">
 </form>
 <br>
-Don't have an account? <a href="homepage.php">Sign up!</a>
+Don't have an account? <a href="registration.php">Sign up!</a>
 </body>
 
 </html>
