@@ -8,8 +8,15 @@
 <h1>Create an account for Nostalgia!!</h1>
 <form id="register" action="" method="POST">
     <input type="text" name="reguser" id="reguser" autocomplete="off" placeholder="Enter desired username..."><br>
-    <input type="text" name="regpass" id="regpass" autocomplete="off" placeholder="Enter desired password..."><br>
-    <input type="text" name="passcheck" id="passcheck" autocomplete="off" placeholder="Re-enter password..."><br>
+    Your password must contain:
+    <ul>
+        <li>at least 8 characters
+        <li>at least 1 lower case letter
+        <li>at least 1 upper case letter
+        <li>at least 1 number
+    </ul>
+    <input type="password" name="regpass" id="regpass" autocomplete="off" placeholder="Enter desired password..."><br>
+    <input type="password" name="passcheck" id="passcheck" autocomplete="off" placeholder="Re-enter password..."><br>
     <br>
     <input type="submit">
 </form>
@@ -31,8 +38,6 @@
         if(isset($username) && !empty($username)){
             if(isset($pass) && !empty($pass)){
                 if(isset($check) && !empty($check)){
-                    $sql_user = mysqli_escape_string($conn, $username);
-                    $sql_pass = mysqli_escape_string($conn, $pass);
 
                     $query = $conn->prepare("SELECT * FROM users where user=?");
                     $query->bind_param("s", $username);
@@ -58,8 +63,9 @@
                             $msg = "Your passwords do not match!";
                             echo '<div class="msg">'.$msg.'</div>';
                         } else {
+                            $hashed = password_hash($pass, PASSWORD_DEFAULT);
                             $insquery = $conn->prepare("INSERT INTO users (user, password) VALUES (?, ?)");
-                            $insquery->bind_param("ss", $username, $pass);
+                            $insquery->bind_param("ss", $username, $hashed);
                             if($insquery->execute() === TRUE){
                                 $msg = "You've successfully created an account!";
                                 echo '<div class="msg">'.$msg.'</div>';
