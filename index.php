@@ -1,78 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<?php include('includes/head_section.php') ?>
     <title>Nostalgia — keeping it simple.</title>
-    <meta name="title" content="Nostalgia — keeping it simple.">
-    <meta name="description" content="Nostalgia is an ethical social network taking key design elements from early 2000s online culture.">
-
-    <meta property="og:title" content="Nostalgia — keeping it simple.">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="Nostalgia is an ethical social network taking key design elements from early 2000s online culture.">
-
-    <script src="scripts.js" defer></script>
 </head>
 
 <body>
+    <!-- container = navbar + main + footer -->
     <div class="container">
-        <nav>
-            <div class="top">
-                <div class="left">
-                    <a href="index.php">
-                        <img class="logo" src="logo.png" alt="Nostalgia">    
-                    </a>
-                </div>
-                <div class="center">
-                    <h1>Nostalgia</h1>
-                </div>
-                <div class="right">
-                    <a href="index.php">Help</a>
-                    <button class="darkmode-toggle">🌑</button>
-                </div>
-            </div>
-            <ul class="links">
-                <!-- ADD: current page's navbar link is bolded, or color changed -->
-                <li>
-                    <a href="index.php">Home</a>
-                </li>
-                <li>
-                    <a class="broken-link" href="index.php">Profile</a>
-                </li>
-                <li>
-                    <a class="broken-link" href="index.php">Search</a>
-                </li>
-                <li>
-                    <a class="broken-link" href="index.php">Friends</a>
-                </li>
-                <li>
-                    <a class="broken-link" href="index.php">Blog</a>
-                </li>
-                <li>
-                    <a class="broken-link" href="index.php">Saved</a>
-                </li>
-                <li>
-                    <a class="broken-link" href="index.php">About</a>
-                </li>
-                <li>
-                    <a class="broken-link" href="index.php">News</a>
-                </li>
-                <li>
-                    <a href="login.php">Login</a>
-                </li>
-            </ul>
-        </nav>
-        <main>
-            <div class="row profile homepage">
+        <!-- navbar -->
+        <?php include('includes/navbar_section.php') ?>
+        <!-- /navbar -->
+
+        <!-- content -->
+        <div class="content">
+            <div class="row profile page-index">
                 <div class="col left w-40">
-                    <div class="info-box">
+                    <div class="profile-box">
                         <div class="heading">
                             <h1>Hi Rob!</h1>
                         </div>
                         <div class="inner">
                             <div class="profile-pic">
-                                <img src="profile.jpg" alt="profile picture">
+                                <img src="static/images/profile.jpg" alt="profile picture">
                             </div>
                             <div class="details">
                                 <p>🔴 Busy</p>
@@ -80,20 +27,13 @@
                                 <p>Mood: <i>stressed</i></p>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="col right">
                 </div>
             </div>
-        </main>
-        <footer>
-            <p>
-                created by Joseph, Rob, and Elijah
-            </p>
-        </footer>
-    </div>
-</body>
+        </div>
+        <!-- /content -->
 
-
-<link rel="stylesheet" href="style.php" media="screen">
+        <!-- footer -->
+        <?php include('includes/footer_section.php') ?>
