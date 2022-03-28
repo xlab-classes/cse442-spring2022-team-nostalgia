@@ -43,7 +43,13 @@
             <a class="broken-link" href="index.php">News</a>
         </li>
         <li>
-            <a href="login.php">Login</a>
+        <?php
+            if(!isset($_SESSION["username"])){
+                echo "<a href='login.php'>Login</a>";
+            } else {
+                echo "<a href='logout.php'>Log out</a>";
+            }
+        ?>
         </li>
     </ul>
 </div>
