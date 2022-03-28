@@ -29,59 +29,65 @@
                                     $pass = $_POST["regpass"];
                                     $check = $_POST["passcheck"];
 
-                                    if(isset($username) && !empty($username)){
-                                        if(isset($pass) && !empty($pass)){
-                                            if(isset($check) && !empty($check)){
+                                    if(!str_contains($username, " ")){
+                                        if(isset($username) && !empty($username)){
+                                            if(isset($pass) && !empty($pass)){
+                                                if(isset($check) && !empty($check)){
 
-                                                $query = $conn->prepare("SELECT * FROM users where user=?");
-                                                $query->bind_param("s", $username);
-                                                if ($query->execute() === TRUE) {
-                                                    $count = $query->get_result();
+                                                    $query = $conn->prepare("SELECT * FROM users where user=?");
+                                                    $query->bind_param("s", $username);
+                                                    if ($query->execute() === TRUE) {
+                                                        $count = $query->get_result();
 
-                                                    if($count->num_rows > 0){
-                                                        $msg = "This username has already been taken. Please choose another one.";
-                                                        echo '<div class="msg">'.$msg.'</div>';
-                                                    } else if (strlen($pass) < 8){
-                                                        $msg = "Your password is too short. It must be at least 8 characters.";
-                                                        echo '<div class="msg">'.$msg.'</div>';
-                                                    } else if (!preg_match("#[a-z]+#", $pass)){
-                                                        $msg = "Your password must contain at least 1 lowercase letter.";
-                                                        echo '<div class="msg">'.$msg.'</div>';
-                                                    } else if (!preg_match("#[A-Z]+#", $pass)){
-                                                        $msg = "Your password must contain at least 1 uppercase letter.";
-                                                        echo '<div class="msg">'.$msg.'</div>';
-                                                    } else if (!preg_match("#[0-9]+#", $pass)){
-                                                        $msg = "Your password must contain at least 1 number.";
-                                                        echo '<div class="msg">'.$msg.'</div>';
-                                                    } else if ($pass != $check){
-                                                        $msg = "Your passwords do not match!";
-                                                        echo '<div class="msg">'.$msg.'</div>';
-                                                    } else {
-                                                        $hashed = password_hash($pass, PASSWORD_DEFAULT);
-                                                        $insquery = $conn->prepare("INSERT INTO users (user, password) VALUES (?, ?)");
-                                                        $insquery->bind_param("ss", $username, $hashed);
-                                                        if($insquery->execute() === TRUE){
-                                                            $msg = "You've successfully created an account!";
+                                                        if($count->num_rows > 0){
+                                                            $msg = "This username has already been taken. Please choose another one.";
+                                                            echo '<div class="msg">'.$msg.'</div>';
+                                                        } else if (strlen($pass) < 8){
+                                                            $msg = "Your password is too short. It must be at least 8 characters.";
+                                                            echo '<div class="msg">'.$msg.'</div>';
+                                                        } else if (!preg_match("#[a-z]+#", $pass)){
+                                                            $msg = "Your password must contain at least 1 lowercase letter.";
+                                                            echo '<div class="msg">'.$msg.'</div>';
+                                                        } else if (!preg_match("#[A-Z]+#", $pass)){
+                                                            $msg = "Your password must contain at least 1 uppercase letter.";
+                                                            echo '<div class="msg">'.$msg.'</div>';
+                                                        } else if (!preg_match("#[0-9]+#", $pass)){
+                                                            $msg = "Your password must contain at least 1 number.";
+                                                            echo '<div class="msg">'.$msg.'</div>';
+                                                        } else if ($pass != $check){
+                                                            $msg = "Your passwords do not match!";
                                                             echo '<div class="msg">'.$msg.'</div>';
                                                         } else {
-                                                            echo "Query failed due to: " . $conn->error;
+                                                            $hashed = password_hash($pass, PASSWORD_DEFAULT);
+                                                            $insquery = $conn->prepare("INSERT INTO users (user, password) VALUES (?, ?)");
+                                                            $insquery->bind_param("ss", $username, $hashed);
+                                                            if($insquery->execute() === TRUE){
+                                                                $msg = "You've successfully created an account!";
+                                                                echo '<div class="msg">'.$msg.'</div>';
+                                                            } else {
+                                                                echo "Query failed due to: " . $conn->error;
+                                                            }
                                                         }
+                                                    } else {
+                                                        echo "Query failed due to " . $conn->error;
                                                     }
                                                 } else {
-                                                    echo "Query failed due to " . $conn->error;
+                                                    $msg = "Please re-enter your password.";
+                                                    echo '<div class="msg">'.$msg.'</div>';
                                                 }
                                             } else {
-                                                $msg = "Please re-enter your password.";
+                                                $msg = "Please fill in the password field.";
                                                 echo '<div class="msg">'.$msg.'</div>';
                                             }
                                         } else {
-                                            $msg = "Please fill in the password field.";
+                                            $msg = "Please fill in the username field.";
                                             echo '<div class="msg">'.$msg.'</div>';
                                         }
                                     } else {
-                                        $msg = "Please fill in the username field.";
-                                        echo '<div class="msg">'.$msg.'</div>';
+                                        $msg = "Your username cannot contain any spaces.";
+                                         echo '<div class="msg">'.$msg.'</div>';
                                     }
+
                                 }
                             ?>
                             <br>
