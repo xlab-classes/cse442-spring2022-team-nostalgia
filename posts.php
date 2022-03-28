@@ -1,7 +1,12 @@
 <?php include('includes/head_section.php') ?>
     <title>Nostalgia — keeping it simple.</title>
 </head>
-
+<?php
+    session_start();
+    if(!isset($_SESSION["username"])){
+        header('Location: login.php'); exit;
+    }
+?>
 <body>
     <div class="container">
         <!-- navbar -->
@@ -32,9 +37,9 @@
                                 </ul>
                             </div>
                             <div class="post-textarea">
-                                <form method="post" enctype="multipart/form-data"> 
-                                <textarea class="status" name="status" placeholder="Write your post here!" rows="4" cols="50"></textarea> 
-                            </div> 
+                                <form method="post" enctype="multipart/form-data">
+                                <textarea class="status" name="status" placeholder="Write your post here!" rows="4" cols="50"></textarea>
+                            </div>
                         </div>
                     </div>
 

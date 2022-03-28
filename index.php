@@ -1,7 +1,12 @@
 <?php include('includes/head_section.php') ?>
     <title>Nostalgia — keeping it simple.</title>
 </head>
-
+<?php
+    session_start();
+    if(!isset($_SESSION["username"])){
+        header('Location: login.php'); exit;
+    }
+?>
 <body>
     <!-- container = navbar + main + footer -->
     <div class="container">
