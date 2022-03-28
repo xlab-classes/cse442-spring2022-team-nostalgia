@@ -36,7 +36,7 @@
                                                 } else {
                                                     //session_start();
                                                     //$_SESSION["username"] = $username;
-                                                    header("Location: homepage.php"); exit;
+                                                    header("Location: index.php"); exit;
                                                 }
                                             } else {
                                                 echo "Query failed due to " . $conn->error;
