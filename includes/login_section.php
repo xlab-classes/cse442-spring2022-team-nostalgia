@@ -6,11 +6,15 @@
                             <form id="login" action="" method="POST">
                                 <input type="text" name="username" id="username" autocomplete="off" placeholder="Enter your username..."><br>
                                 <input type="password" name="pass" id="pass" autocomplete="off" placeholder="Enter your password..."><br>
-                                
+
                                 <input type="submit">
                             </form>
                             <br>
                             <?php
+                                session_start();
+                                if(isset($_SESSION["username"])){
+                                    header('Location: index.php'); exit;
+                                }
                                 if (!empty($_POST)){
 
                                     $conn = new mysqli("oceanus.cse.buffalo.edu", "elijahhu", "50284336", "cse442_2022_spring_team_d_db");
@@ -20,7 +24,6 @@
 
                                     $username = $_POST["username"];
                                     $pass = $_POST["pass"];
-
                                     if(isset($username) && !empty($username)){
                                         if(isset($pass) && !empty($pass)){
                                             $query = $conn->prepare("SELECT * FROM users where user=?");
@@ -34,8 +37,8 @@
                                                 } else if (!password_verify($pass, $data['password'])){
                                                     echo '<div class="msg">'.$msg.'</div>';
                                                 } else {
-                                                    //session_start();
-                                                    //$_SESSION["username"] = $username;
+                                                    session_start();
+                                                    $_SESSION["username"] = $username;
                                                     header("Location: index.php"); exit;
                                                 }
                                             } else {
