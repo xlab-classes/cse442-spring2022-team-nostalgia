@@ -39,7 +39,7 @@
                                             if(isset($pass) && !empty($pass)){
                                                 if(isset($check) && !empty($check)){
 
-                                                    $query = $conn->prepare("SELECT * FROM users where user=?");
+                                                    $query = $conn->prepare("SELECT * FROM users where username=?");
                                                     $query->bind_param("s", $username);
                                                     if ($query->execute() === TRUE) {
                                                         $count = $query->get_result();
@@ -64,7 +64,7 @@
                                                             echo '<div class="msg">'.$msg.'</div>';
                                                         } else {
                                                             $hashed = password_hash($pass, PASSWORD_DEFAULT);
-                                                            $insquery = $conn->prepare("INSERT INTO users (user, password) VALUES (?, ?)");
+                                                            $insquery = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
                                                             $insquery->bind_param("ss", $username, $hashed);
                                                             if($insquery->execute() === TRUE){
                                                                 $msg = "You've successfully created an account!";
