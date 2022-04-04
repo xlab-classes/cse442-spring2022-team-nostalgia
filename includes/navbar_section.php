@@ -22,7 +22,7 @@
             <a class="broken-link" href="index.php">Profile</a>
         </li>
         <li>
-            <a class="broken-link" href="index.php">Search</a>
+            <a href="search.php">Search</a>
         </li>
         <li>
             <a href="posts.php">Posts</a>
