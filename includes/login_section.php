@@ -26,7 +26,7 @@
                                     $pass = $_POST["pass"];
                                     if(isset($username) && !empty($username)){
                                         if(isset($pass) && !empty($pass)){
-                                            $query = $conn->prepare("SELECT * FROM users where user=?");
+                                            $query = $conn->prepare("SELECT * FROM users where username=?");
                                             $query->bind_param("s", $username);
                                             if ($query->execute() === TRUE) {
                                                 $res = $query->get_result();
