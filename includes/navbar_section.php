@@ -28,7 +28,10 @@
             <a href="posts.php">Posts</a>
         </li>
         <li>
-            <a class="broken-link" href="index.php">Friends</a>
+            <a href="followers.php">Followers</a>
+        </li>
+        <li>
+            <a href="following.php">Following</a>
         </li>
         <li>
             <a class="broken-link" href="index.php">Blog</a>

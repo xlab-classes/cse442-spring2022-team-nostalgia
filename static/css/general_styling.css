@@ -35,7 +35,7 @@
 	--link-blue: #204bd6;
 }
 
-* { margin: 0px; padding: 0px; 
+* { margin: 0px; padding: 0px;
 	box-sizing: border-box;
 }
 
@@ -56,7 +56,7 @@ body {
 	accent-color: var(--spanish-violet);
 }
 body.dark-theme {
-    --text-color: var(--snow-white); 
+    --text-color: var(--snow-white);
     --bkg-color: var(--jet);
     --container-color: var(--dark-mode-1);
     --header-color: var(--logo);
@@ -65,7 +65,7 @@ body.dark-theme {
 @media (prefers-color-scheme: dark) {                                       /*** TO DO: MORE ELEGANT SOLUTION??? ***/
     /* variables when default to dark theme */								/*** TO DO: COOKIES ***/
     body {
-        --text-color: var(--snow-white); 
+        --text-color: var(--snow-white);
         --bkg-color: var(--jet);
         --container-color: var(--dark-mode-1);
         --header-color: var(--logo);
@@ -147,7 +147,7 @@ form { margin: 20px; }
 .navbar {
 	margin: 0 auto;
 	overflow: hidden;
-	
+
 	/* padding: 15px 10px 15px 10px;
 	background-color: var(--logo-dark);
 	display: flex; */
@@ -172,7 +172,7 @@ form { margin: 20px; }
 				min-width: 100%;
 				min-height: 100%;
 			}
-			
+
 		/* NAVBAR - TOP MIDDLE */
 			/* TITLE - "NOSTALGIA" */
 			.navbar .top .center h1 {
@@ -198,7 +198,7 @@ form { margin: 20px; }
 		margin: 0px;
 		padding: 0px 10px 5px;
 		flex: initial;
-		background: var(--logo); 
+		background: var(--logo);
 		list-style: none;
 		white-space: nowrap;
 		text-align: center;
@@ -219,7 +219,7 @@ form { margin: 20px; }
 .content .left, .content .right { padding: 10px; }
 
 .col {
-    display: table-cell; 
+    display: table-cell;
     vertical-align: top;
 }
 	.col.w-40 { width: 40%; }
@@ -237,7 +237,7 @@ form { margin: 20px; }
 			padding: 2px 10px;
 		}
 		/* .profile-box .inner, .login-box .inner {
-			
+
 		} */
 			.profile-pic {
 				display: block;

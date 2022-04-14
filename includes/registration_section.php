@@ -65,10 +65,19 @@
                                                         } else {
                                                             $hashed = password_hash($pass, PASSWORD_DEFAULT);
                                                             $insquery = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+                                                            $followquery = $conn->prepare("INSERT INTO followers (username, followers) VALUES (?, ?)");
                                                             $insquery->bind_param("ss", $username, $hashed);
+                                                            $followers = [
+                                                                "followers" => array(),
+                                                                "following" => array()
+                                                            ];
+                                                            $jsonArr = json_encode($followers);
+                                                            $followquery->bind_param("ss", $username, $jsonArr);
                                                             if($insquery->execute() === TRUE){
-                                                                $msg = "You've successfully created an account!";
-                                                                echo '<div class="msg">'.$msg.'</div>';
+                                                                if($followquery->execute() === TRUE){
+                                                                    $msg = "You've successfully created an account!";
+                                                                    echo '<div class="msg">'.$msg.'</div>';
+                                                                }
                                                             } else {
                                                                 echo "Query failed due to: " . $conn->error;
                                                             }
