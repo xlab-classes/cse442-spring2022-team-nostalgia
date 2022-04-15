@@ -1,13 +1,18 @@
 <?php include('includes/head_section.php') ?>
     <title>Nostalgia — keeping it simple.</title>
 </head>
-
+<?php
+    session_start();
+    if(isset($_SESSION["username"])){
+        header('Location: index.php'); exit;
+    }
+?>
 <body>
     <div class="container">
         <!-- navbar -->
         <?php include('includes/navbar_section.php') ?>
         <!-- /navbar -->
-        
+
         <!-- content -->
         <div class="content">
             <div class="row page-register">
@@ -16,8 +21,8 @@
                 </div>
                 <div class="col right">
                 </div>
-            </div>    
-            
+            </div>
+
         </div>
         <!-- /content -->
 

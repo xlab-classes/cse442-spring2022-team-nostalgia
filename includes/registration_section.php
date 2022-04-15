@@ -29,11 +29,6 @@
                                     $pass = $_POST["regpass"];
                                     $check = $_POST["passcheck"];
 
-                                    session_start();
-                                    if(isset($_SESSION["username"])){
-                                        header('Location: index.php'); exit;
-                                    }
-
                                     if(!str_contains($username, " ")){
                                         if(isset($username) && !empty($username)){
                                             if(isset($pass) && !empty($pass)){
