@@ -19,7 +19,7 @@
             <a href="index.php">Home</a>
         </li>
         <li>
-            <a class="broken-link" href="index.php">Profile</a>
+            <a href="profilebio.php">Profile</a>
         </li>
         <li>
             <a href="search.php">Search</a>
