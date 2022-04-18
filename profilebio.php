@@ -14,7 +14,7 @@
             <br>
             <br>
             <input type=submit name="s">
-            <?php if(isset($_POST['s'])){$a=$_POST['t1'];echo "The name of the person is:-".$a; ?>
+            <?php if(isset($_POST['s'])){$a=$_POST['t1'];echo "Bio:-".$a;} ?>
         </form>
         <h2>Posts</h2>
     </body>
