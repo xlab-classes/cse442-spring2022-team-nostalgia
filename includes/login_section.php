@@ -37,8 +37,8 @@
                                                 } else if (!password_verify($pass, $data['password'])){
                                                     echo '<div class="msg">'.$msg.'</div>';
                                                 } else {
-                                                    session_start();
                                                     $_SESSION["username"] = $username;
+                                                    $_SESSION["userid"] = $data['id'];
                                                     header("Location: index.php"); exit;
                                                 }
                                             } else {

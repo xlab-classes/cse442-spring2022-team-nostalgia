@@ -1,12 +1,15 @@
+<?php require('includes/public_functions.php') ?>
 <?php include('includes/head_section.php') ?>
-    <title>Nostalgia — keeping it simple.</title>
+    <title>Nostalgia — Home</title>
 </head>
+
 <?php
     session_start();
     if(!isset($_SESSION["username"])){
         header('Location: login.php'); exit;
     }
 ?>
+
 <body>
     <!-- container = navbar + main + footer -->
     <div class="container">
@@ -16,7 +19,7 @@
 
         <!-- content -->
         <div class="content">
-            <div class="row profile page-index">
+            <div class="row">
                 <div class="col left w-40">
                     <div class="profile-box">
                         <div class="heading">

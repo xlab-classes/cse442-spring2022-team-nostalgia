@@ -1,5 +1,5 @@
 <?php include('includes/head_section.php') ?>
-    <title>Nostalgia — keeping it simple.</title>
+    <title>Nostalgia — Forgot</title>
 </head>
 
 <body>
