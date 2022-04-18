@@ -1,4 +1,6 @@
-<?php include('includes/head_section.php') ?>
+<?php include('includes/head_section.php');
+include('includes/navbar_section.php');
+?>
     <title>Nostalgia — My Profile</title>
 </head>
 <html>
